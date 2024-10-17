@@ -5,4 +5,6 @@ class StringsManager {
   static const String radioLabel = 'Radio';
   static const String tasbehLabel = 'Tasbeh';
   static const String settingsLabel = 'Settings';
+  static const String versesNumberLabel = 'Verses Number';
+  static const String chapterNumberLabel = 'Chapter Name';
 }
