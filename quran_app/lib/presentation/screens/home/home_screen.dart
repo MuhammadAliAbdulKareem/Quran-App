@@ -19,10 +19,10 @@ class _HomeScreenState extends State<HomeScreen> {
   int selectedTab = 0;
 
   List<Widget> tabs = const [
-    RadioTab(),
-    TasbehTab(),
-    HadithTab(),
     QuranTab(),
+    HadithTab(),
+    TasbehTab(),
+    RadioTab(),
     SettingsTab(),
   ];
 
@@ -55,9 +55,19 @@ class _HomeScreenState extends State<HomeScreen> {
               BottomNavigationBarItem(
                 backgroundColor: ColorsManager.goldColor,
                 icon: ImageIcon(
-                  AssetImage(AssetsManager.radioIcon),
+                  AssetImage(
+                    AssetsManager.quranIcon,
+                  ),
+                  size: 32.0,
                 ),
-                label: StringsManager.radioLabel,
+                label: StringsManager.quranLabel,
+              ),
+              BottomNavigationBarItem(
+                backgroundColor: ColorsManager.goldColor,
+                icon: ImageIcon(
+                  AssetImage(AssetsManager.hadithIcon),
+                ),
+                label: StringsManager.hadithLabel,
               ),
               BottomNavigationBarItem(
                 backgroundColor: ColorsManager.goldColor,
@@ -70,19 +80,9 @@ class _HomeScreenState extends State<HomeScreen> {
               BottomNavigationBarItem(
                 backgroundColor: ColorsManager.goldColor,
                 icon: ImageIcon(
-                  AssetImage(AssetsManager.hadithIcon),
+                  AssetImage(AssetsManager.radioIcon),
                 ),
-                label: StringsManager.hadithLabel,
-              ),
-              BottomNavigationBarItem(
-                backgroundColor: ColorsManager.goldColor,
-                icon: ImageIcon(
-                  AssetImage(
-                    AssetsManager.quranIcon,
-                  ),
-                  size: 32.0,
-                ),
-                label: StringsManager.quranLabel,
+                label: StringsManager.radioLabel,
               ),
               BottomNavigationBarItem(
                 backgroundColor: ColorsManager.goldColor,
