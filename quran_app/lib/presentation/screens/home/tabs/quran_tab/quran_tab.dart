@@ -255,12 +255,8 @@ class QuranTab extends StatelessWidget {
             flex: 4,
             child: ListView.builder(
               itemBuilder: (_, index) => QuranItemWidget(
-                surahItem: SurahItem(
-                  surahName: suraNames[index],
                   versesNumber: versesNumber[index],
-                  index: index,
-                ),
-              ),
+                  suraNames: suraNames[index]),
               itemCount: suraNames.length,
             ),
           )
@@ -268,15 +264,4 @@ class QuranTab extends StatelessWidget {
       ),
     );
   }
-}
-
-class SurahItem {
-  String surahName;
-  int versesNumber;
-  int index;
-
-  SurahItem(
-      {required this.surahName,
-      required this.versesNumber,
-      required this.index});
 }
