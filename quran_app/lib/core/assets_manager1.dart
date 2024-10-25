@@ -6,6 +6,10 @@ class Assets {
   /// assets/images/bodyofseb7a.png
   static const String imagesBodyofseb7a = "assets/images/bodyofseb7a.png";
 
+  /// Assets for imagesHadithHeader
+  /// assets/images/hadith_header.png
+  static const String imagesHadithHeader = "assets/images/hadith_header.png";
+
   /// Assets for imagesHadithIcon
   /// assets/images/hadith_icon.png
   static const String imagesHadithIcon = "assets/images/hadith_icon.png";
