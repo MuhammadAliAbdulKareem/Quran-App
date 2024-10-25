@@ -36,8 +36,10 @@ class _QuranDetailsState extends State<QuranDetails> {
           ),
         ),
         body: verses.isEmpty
-            ? const Center(
-                child: CircularProgressIndicator(),
+            ? Center(
+                child: CircularProgressIndicator(
+                  color: Theme.of(context).primaryColor,
+                ),
               )
             : ListView.builder(
                 itemBuilder: (_, index) =>
