@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_app/core/assets_manager.dart';
 import 'package:quran_app/presentation/screens/home/tabs/quran_tab/quran_tab.dart';
 import 'package:quran_app/presentation/screens/quran_details_screen/widgets/surah_verses_widget.dart';
