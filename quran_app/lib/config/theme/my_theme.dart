@@ -27,6 +27,10 @@ class MyTheme {
       unselectedItemColor: Colors.white,
       showUnselectedLabels: false,
     ),
+    bottomSheetTheme: const BottomSheetThemeData(
+      elevation: 12.0,
+      backgroundColor: ColorsManager.goldColor,
+    ),
     textTheme: TextTheme(
       labelMedium: GoogleFonts.elMessiri(
         fontSize: 22,
@@ -37,6 +41,18 @@ class MyTheme {
         fontSize: 20,
         fontWeight: FontWeight.w400,
         color: const Color(0xff242424),
+      ),
+      headlineMedium: GoogleFonts.elMessiri(
+        fontSize: 24.0,
+        fontWeight: FontWeight.w700,
+      ),
+      headlineSmall: GoogleFonts.elMessiri(
+        fontSize: 20.0,
+        fontWeight: FontWeight.w500,
+      ),
+      displayLarge: GoogleFonts.elMessiri(
+        fontSize: 28.0,
+        fontWeight: FontWeight.w700,
       ),
     ),
     dividerColor: ColorsManager.goldColor,
