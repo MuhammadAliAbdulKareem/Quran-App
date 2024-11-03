@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../core/strings_manager.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HadithHeaderWidget extends StatelessWidget {
   const HadithHeaderWidget({
@@ -21,7 +21,7 @@ class HadithHeaderWidget extends StatelessWidget {
         ),
       ),
       child: Text(
-        StringsManager.hadithHeaderLabel,
+        AppLocalizations.of(context)!.hadithHeader,
         style: Theme.of(context).textTheme.labelMedium?.copyWith(
               fontSize: 24.0,
               fontWeight: FontWeight.w700,

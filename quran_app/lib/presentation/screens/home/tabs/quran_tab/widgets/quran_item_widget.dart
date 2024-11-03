@@ -26,7 +26,7 @@ class QuranItemWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 12.0),
                 child: Text(
-                  surahItem.versesNumber.toString(),
+                  surahItem.surahName,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),
@@ -40,7 +40,7 @@ class QuranItemWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 12.0),
                 child: Text(
-                  surahItem.surahName,
+                  surahItem.versesNumber.toString(),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodyMedium,
                 ),

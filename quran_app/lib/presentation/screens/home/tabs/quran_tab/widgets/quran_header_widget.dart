@@ -25,7 +25,7 @@ class QuranHeaderWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
-                  StringsManager.versesNumberLabel,
+                  StringsManager.chapterNumberLabel,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.labelMedium,
                 ),
@@ -39,7 +39,7 @@ class QuranHeaderWidget extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Text(
-                  StringsManager.chapterNumberLabel,
+                  StringsManager.versesNumberLabel,
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.labelMedium,
                 ),

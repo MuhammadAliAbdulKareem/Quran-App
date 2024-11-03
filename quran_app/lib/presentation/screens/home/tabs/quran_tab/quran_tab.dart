@@ -240,29 +240,32 @@ class QuranTab extends StatelessWidget {
   ];
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Expanded(
-          flex: 2,
-          child: Image.asset(
-            AssetsManager.quranHeaderIcon,
-          ),
-        ),
-        const QuranHeaderWidget(),
-        Expanded(
-          flex: 4,
-          child: ListView.builder(
-            itemBuilder: (_, index) => QuranItemWidget(
-              surahItem: SurahItem(
-                surahName: suraNames[index],
-                versesNumber: versesNumber[index],
-                index: index,
-              ),
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Column(
+        children: [
+          Expanded(
+            flex: 2,
+            child: Image.asset(
+              AssetsManager.quranHeaderIcon,
             ),
-            itemCount: suraNames.length,
           ),
-        )
-      ],
+          const QuranHeaderWidget(),
+          Expanded(
+            flex: 4,
+            child: ListView.builder(
+              itemBuilder: (_, index) => QuranItemWidget(
+                surahItem: SurahItem(
+                  surahName: suraNames[index],
+                  versesNumber: versesNumber[index],
+                  index: index,
+                ),
+              ),
+              itemCount: suraNames.length,
+            ),
+          )
+        ],
+      ),
     );
   }
 }

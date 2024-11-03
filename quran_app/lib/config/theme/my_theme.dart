@@ -51,7 +51,7 @@ class MyTheme {
         fontWeight: FontWeight.w500,
       ),
       displayLarge: GoogleFonts.elMessiri(
-        fontSize: 28.0,
+        fontSize: 24.0,
         fontWeight: FontWeight.w700,
       ),
     ),

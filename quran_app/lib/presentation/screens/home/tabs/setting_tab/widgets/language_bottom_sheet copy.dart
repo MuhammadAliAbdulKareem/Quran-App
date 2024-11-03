@@ -15,7 +15,7 @@ class LanguageBottomSheet extends StatelessWidget {
         children: [
           selectedThemeWidget(context, "English"),
           SizedBox(
-            height: screenSize.height * 0.02,
+            height: screenSize.height * 0.03,
           ),
           unSelectedThemeWidget(context, "العربية"),
         ],

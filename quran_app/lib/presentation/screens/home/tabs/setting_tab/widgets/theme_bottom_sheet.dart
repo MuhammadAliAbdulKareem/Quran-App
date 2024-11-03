@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../core/colors_manager.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ThemeBottomSheet extends StatelessWidget {
   const ThemeBottomSheet({super.key});
@@ -13,11 +14,11 @@ class ThemeBottomSheet extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          selectedThemeWidget(context, "Light"),
+          selectedThemeWidget(context, AppLocalizations.of(context)!.light),
           SizedBox(
-            height: screenSize.height * 0.02,
+            height: screenSize.height * 0.03,
           ),
-          unSelectedThemeWidget(context, "Dark"),
+          unSelectedThemeWidget(context, AppLocalizations.of(context)!.dark),
         ],
       ),
     );
