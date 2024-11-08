@@ -7,4 +7,5 @@ class StringsManager {
   static const String settingsLabel = 'Settings';
   static const String versesNumberLabel = 'Verses Number';
   static const String chapterNumberLabel = 'Chapter Name';
+  static const String hadithHeaderLabel = 'El-Hadith';
 }
