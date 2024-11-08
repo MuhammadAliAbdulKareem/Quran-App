@@ -247,7 +247,7 @@ class QuranTab extends StatelessWidget {
           Expanded(
             flex: 2,
             child: Image.asset(
-              AssetsManager.quranHeaderIcon,
+              Assets.imagesQuranHeaderIcn,
             ),
           ),
           const QuranHeaderWidget(),

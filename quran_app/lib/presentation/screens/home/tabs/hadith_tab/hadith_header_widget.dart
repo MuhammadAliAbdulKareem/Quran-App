@@ -15,7 +15,7 @@ class HadithHeaderWidget extends StatelessWidget {
       decoration: BoxDecoration(
         border: Border.symmetric(
           horizontal: BorderSide(
-            color: Theme.of(context).primaryColor,
+            color: Theme.of(context).dividerColor,
             width: 2.0,
           ),
         ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:quran_app/presentation/screens/home/tabs/setting_tab/widgets/language_bottom_sheet%20copy.dart';
+import 'package:quran_app/providers/language_provider.dart';
 
+import '../../../../../providers/theme_provider.dart';
 import 'widgets/theme_bottom_sheet.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -10,6 +13,8 @@ class SettingsTab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    LanguageProvider languageProvider = Provider.of<LanguageProvider>(context);
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: Column(
@@ -30,12 +35,14 @@ class SettingsTab extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).dividerColor,
                   width: 2.0,
                 ),
               ),
               child: Text(
-                AppLocalizations.of(context)!.light,
+                themeProvider.isLight()
+                    ? AppLocalizations.of(context)!.light
+                    : AppLocalizations.of(context)!.dark,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
@@ -58,12 +65,14 @@ class SettingsTab extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8.0),
                 border: Border.all(
-                  color: Theme.of(context).primaryColor,
+                  color: Theme.of(context).dividerColor,
                   width: 2.0,
                 ),
               ),
               child: Text(
-                AppLocalizations.of(context)!.english,
+                languageProvider.isEnglish()
+                    ? AppLocalizations.of(context)!.english
+                    : AppLocalizations.of(context)!.arabic,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),

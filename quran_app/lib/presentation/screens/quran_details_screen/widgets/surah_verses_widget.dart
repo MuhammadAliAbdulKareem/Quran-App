@@ -13,16 +13,19 @@ class SurahVersesWidget extends StatelessWidget {
     return Card(
       color: Theme.of(context).primaryColor,
       elevation: 8.0,
-      shadowColor: Colors.deepOrange,
+      shadowColor: Theme.of(context).dividerColor,
       margin: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-      child: Text(
-        verses,
-        style: Theme.of(context)
-            .textTheme
-            .bodyMedium
-            ?.copyWith(color: Colors.white),
-        textAlign: TextAlign.center,
-        textDirection: TextDirection.rtl,
+      child: Padding(
+        padding: const EdgeInsets.all(12.0),
+        child: Text(
+          verses,
+          style: Theme.of(context)
+              .textTheme
+              .bodyMedium
+              ?.copyWith(color: Colors.white),
+          textAlign: TextAlign.center,
+          textDirection: TextDirection.rtl,
+        ),
       ),
     );
   }

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:quran_app/core/assets_manager1.dart';
+import 'package:provider/provider.dart';
+import 'package:quran_app/core/assets_manager.dart';
+import 'package:quran_app/core/colors_manager.dart';
 import 'dart:math' as math;
+
+import '../../../../../providers/theme_provider.dart';
 
 class TasbehTab extends StatefulWidget {
   const TasbehTab({super.key});
@@ -22,22 +26,30 @@ class _TasbehTabState extends State<TasbehTab>
   // ];
   @override
   Widget build(BuildContext context) {
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return Scaffold(
       body: Stack(
         children: [
           Positioned(
-            left: 160.0,
+            // left: 160.0,
+            left: themeProvider.isLight() ? 160.0 : 165.0,
             child: Image.asset(
-              Assets.imagesHeadofseb7a,
+              themeProvider.isLight()
+                  ? Assets.imagesHeadofseb7a
+                  : Assets.imagesHeadOfSebhaDark,
             ),
           ),
           Positioned(
-            top: 40.0,
-            left: 20.0,
+            // top: 40.0,
+            // left: 20.0,
+            top: themeProvider.isLight() ? 40.0 : 80.0,
+            left: themeProvider.isLight() ? 20.0 : 60.0,
             child: Transform.rotate(
               angle: (tasbehCounter % 33) * (2 * math.pi / 33),
               child: Image.asset(
-                Assets.imagesBodyofseb7a,
+                themeProvider.isLight()
+                    ? Assets.imagesBodyofseb7a
+                    : Assets.imagesBodyofseb7adark,
               ),
             ),
           ),
@@ -73,7 +85,9 @@ class _TasbehTabState extends State<TasbehTab>
                 ),
                 ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Theme.of(context).primaryColor,
+                      backgroundColor: themeProvider.isLight()
+                          ? Theme.of(context).primaryColor
+                          : ColorsManager.yellow,
                       fixedSize: const Size(150, 45)),
                   onPressed: () {
                     setState(() {
@@ -92,7 +106,9 @@ class _TasbehTabState extends State<TasbehTab>
                     tasbehText,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           fontSize: 22.0,
-                          color: Colors.white,
+                          color: themeProvider.isLight()
+                              ? Colors.white
+                              : Theme.of(context).primaryColor,
                           fontWeight: FontWeight.w500,
                         ),
                   ),
