@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../../../core/colors_manager.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../../../../providers/theme_provider.dart';
 
 class ThemeBottomSheet extends StatelessWidget {
   const ThemeBottomSheet({super.key});
@@ -9,22 +12,46 @@ class ThemeBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
     return Container(
       padding: const EdgeInsets.all(24.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          selectedThemeWidget(context, AppLocalizations.of(context)!.light),
+          InkWell(
+              onTap: () {
+                themeProvider.changeAppTheme(ThemeMode.light);
+              },
+              child: themeProvider.isLight()
+                  ? selectedThemeWidget(
+                      context,
+                      AppLocalizations.of(context)!.light,
+                      themeProvider.isLight())
+                  : unSelectedThemeWidget(
+                      context, AppLocalizations.of(context)!.light)),
           SizedBox(
             height: screenSize.height * 0.03,
           ),
-          unSelectedThemeWidget(context, AppLocalizations.of(context)!.dark),
+          InkWell(
+            onTap: () {
+              themeProvider.changeAppTheme(ThemeMode.dark);
+            },
+            child: themeProvider.isDark()
+                ? selectedThemeWidget(
+                    context,
+                    AppLocalizations.of(context)!.dark,
+                    themeProvider.isLight(),
+                  )
+                : unSelectedThemeWidget(
+                    context, AppLocalizations.of(context)!.dark),
+          ),
         ],
       ),
     );
   }
 
-  Row selectedThemeWidget(BuildContext context, String selectedTheme) {
+  Row selectedThemeWidget(
+      BuildContext context, String selectedTheme, bool isLight) {
     return Row(
       children: [
         Text(
@@ -32,10 +59,10 @@ class ThemeBottomSheet extends StatelessWidget {
           style: Theme.of(context).textTheme.displayLarge,
         ),
         const Spacer(),
-        const Icon(
+        Icon(
           Icons.check_box_outlined,
           size: 30,
-          color: ColorsManager.black,
+          color: isLight ? ColorsManager.black : ColorsManager.yellow,
         ),
       ],
     );
