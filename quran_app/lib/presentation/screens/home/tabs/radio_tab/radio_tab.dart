@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran_app/core/assets_manager.dart';
 import 'package:quran_app/providers/language_provider.dart';
-import 'package:quran_app/providers/theme_provider.dart';
 
 class RadioTab extends StatelessWidget {
   const RadioTab({super.key});
