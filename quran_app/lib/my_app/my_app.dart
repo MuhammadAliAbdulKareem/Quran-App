@@ -9,7 +9,6 @@ import 'package:quran_app/presentation/screens/quran_details_screen/quran_detail
 import 'package:quran_app/presentation/screens/splash/splash_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:quran_app/providers/language_provider.dart';
-
 import '../config/theme/my_theme.dart';
 import '../providers/theme_provider.dart';
 
@@ -46,7 +45,7 @@ class MyApp extends StatelessWidget {
       ],
       locale: languageProvider.currentLanguage,
       debugShowCheckedModeBanner: false,
-      initialRoute: RoutesManager.splashRoute,
+      initialRoute: RoutesManager.homeRoute,
     );
   }
 }
