@@ -13,5 +13,6 @@
     "light" : "Light",
     "dark" : "Dark",
     "english" : "English",
-    "arabic" : "Arabic"
+    "arabic" : "Arabic",
+    "numberOfTasbeehs": "Number Of Tasbeehs"
 }

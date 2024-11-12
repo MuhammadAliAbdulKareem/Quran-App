@@ -3,7 +3,8 @@ import 'package:provider/provider.dart';
 import 'package:quran_app/core/assets_manager.dart';
 import 'package:quran_app/core/colors_manager.dart';
 import 'dart:math' as math;
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:quran_app/providers/language_provider.dart';
 import '../../../../../providers/theme_provider.dart';
 
 class TasbehTab extends StatefulWidget {
@@ -15,24 +16,30 @@ class TasbehTab extends StatefulWidget {
 
 class _TasbehTabState extends State<TasbehTab>
     with SingleTickerProviderStateMixin {
+  List<String> tasbehKeywords = [
+    'سبحان الله',
+    'الحمد لله',
+    'الله أكبر',
+  ];
   int tasbehCounter = 1;
-  String tasbehText = "سبحان الله";
+  int index = 0;
+  late String tasbehText;
+  @override
+  void initState() {
+    super.initState();
+    tasbehText = tasbehKeywords[index];
+  }
 
-  // int index = 0;
-  // List<String> tasbehKeywords = [
-  //   'سبحان الله',
-  //   'الحمد لله',
-  //   'الله أكبر',
-  // ];
   @override
   Widget build(BuildContext context) {
     ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
+    LanguageProvider languageProvider = Provider.of<LanguageProvider>(context);
     return Scaffold(
       body: Stack(
         children: [
           Positioned(
             // left: 160.0,
-            left: themeProvider.isLight() ? 160.0 : 165.0,
+            left: themeProvider.isLight() ? 160.0 : 170.0,
             child: Image.asset(
               themeProvider.isLight()
                   ? Assets.imagesHeadofseb7a
@@ -43,7 +50,7 @@ class _TasbehTabState extends State<TasbehTab>
             // top: 40.0,
             // left: 20.0,
             top: themeProvider.isLight() ? 40.0 : 80.0,
-            left: themeProvider.isLight() ? 20.0 : 60.0,
+            left: themeProvider.isLight() ? 20.0 : 65.0,
             child: Transform.rotate(
               angle: (tasbehCounter % 33) * (2 * math.pi / 33),
               child: Image.asset(
@@ -55,12 +62,12 @@ class _TasbehTabState extends State<TasbehTab>
           ),
           Positioned(
             top: 350.0,
-            left: 105,
+            left: languageProvider.isEnglish() ? 75 : 105,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Text(
-                  'عدد التسبيحات',
+                  AppLocalizations.of(context)!.numberOfTasbeehs,
                   style: Theme.of(context).textTheme.labelMedium?.copyWith(
                         fontWeight: FontWeight.w500,
                         fontSize: 22.0,
@@ -94,12 +101,18 @@ class _TasbehTabState extends State<TasbehTab>
                       tasbehCounter++;
                       if (tasbehCounter > 33) {
                         tasbehCounter = 1;
-                        tasbehText == "سبحان الله"
-                            ? tasbehText = "الحمدلله"
-                            : tasbehText == "الحمدلله"
-                                ? tasbehText = "الله أكبر"
-                                : tasbehText = "سبحان الله";
+                        index =
+                            index < tasbehKeywords.length - 1 ? index + 1 : 0;
+                        tasbehText = tasbehKeywords[index];
                       }
+                      // if (tasbehCounter > 33) {
+                      //   tasbehCounter = 1;
+                      //   tasbehText == "سبحان الله"
+                      //       ? tasbehText = "الحمدلله"
+                      //       : tasbehText == "الحمدلله"
+                      //           ? tasbehText = "الله أكبر"
+                      //           : tasbehText = "سبحان الله";
+                      // }
                     });
                   },
                   child: Text(

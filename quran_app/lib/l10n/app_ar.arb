@@ -13,5 +13,6 @@
     "light" : "فاتح",
     "dark" : "داكن",
     "english" : "الإنجليزية",
-    "arabic" : "العربية"
+    "arabic" : "العربية",
+    "numberOfTasbeehs": "عدد التسبيحات"
 }
